@@ -14,6 +14,8 @@ int main(int ac, char **argv, char **envp)
 	const char *delim = " \n";
 	int num_tokens = 0;
 	char *token;
+    char *thisEnv;
+    char *env;
 	int i;
 	/* declaring void variables */
 	(void)ac;	
@@ -29,6 +31,12 @@ int main(int ac, char **argv, char **envp)
 		printf("%s", prompt);
 		nchars_read = getline(&lineptr, &n, stdin);
 		
+        if (nchars_read == -1)
+        {
+            printf("exiting shell....\n");
+            return (-1);
+        }
+
 		if(feof(stdin))
 		{
 			printf("\n");
@@ -40,15 +48,15 @@ int main(int ac, char **argv, char **envp)
 		}
 		else if (strcmp("env\n",lineptr) == 0)
 		{
-			for (char **env = envp; *env != 0; env++)
+			for (*env = **envp; *env != 0; env++)
 			{
-				char *thisEnv = *env;
+                thisEnv = env;
 				printf("%s\n", thisEnv);
 			}
 		}
 	    else
 	    {
-        /* check if the getline function failed or reached EOF or user use CTRL + D */
+
         /* copy lineptr to lineptr_copy */
         strcpy(lineptr_copy, lineptr);
 
