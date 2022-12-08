@@ -8,7 +8,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-char *get_location(char *command);
-void execmd(char **argv);
+char *get_location(char *command,char *file_path);
+void execmd(char **argv, char **envp);
 
 #endif
