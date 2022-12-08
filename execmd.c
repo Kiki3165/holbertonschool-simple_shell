@@ -9,7 +9,7 @@ void execmd(char **argv, char **envp)
           char *command = NULL, *actual_command = NULL;
           pid_t child_pid;
           int status;
-          char *file_path;
+          char *file_path = NULL;
   
           child_pid = fork();
   
@@ -37,3 +37,4 @@ void execmd(char **argv, char **envp)
                   wait(&status);
           }
   }
+  
