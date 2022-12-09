@@ -47,7 +47,10 @@ char *get_location(char *command,char *file_path)
         /* if we don't get any file_path that exists for the command, we return NULL but we need to free up memory for path_copy */ 
 
         /* before we exit without luck, let's see if the command itself is a file_path that exists */
-        if (stat(command, &buffer) == 0)
+        if (stat(command, &buffer) == 0){
+            free(path_copy);
+            return (command);
+        }
 	{
         free(path_copy);
 		return (command);

@@ -33,8 +33,8 @@ int main(int ac, char **argv, char **envp)
             break;
         else if (strcmp("exit\n", lineptr) == 0)
             break;
-        else if (strcmp("env\n", lineptr) == 0)
-        {
+        else if (strcmp("env\n", lineptr) == 0){
+            free(lineptr);
             for (env = envp; *env != 0; env++)
             {
                 char *thisEnv = *env;
@@ -58,11 +58,11 @@ int main(int ac, char **argv, char **envp)
                 argv[i] = token;
                 token = strtok(NULL, delim);
             }
-            argv[i] = NULL;
+                        argv[i] = NULL;
 
-            /* execute the command */
-            execmd(argv, envp);
-
+            if (execmd(argv, envp) == -1){
+            exit(2);
+            }
         }
     }
     free(lineptr);

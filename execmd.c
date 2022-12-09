@@ -4,7 +4,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-void execmd(char **argv, char **envp)
+int execmd(char **argv, char **envp)
 {
 	char *command = NULL, *actual_command = NULL;
 	pid_t child_pid;
@@ -36,8 +36,10 @@ void execmd(char **argv, char **envp)
 		execve(actual_command, argv, envp);
 		free(actual_command);
 	}
-    else
-    {
-        wait(&status);
-    }
+	wait(&status);
+	if (status == 152){
+		free(actual_command);
+	return (-1);
+	}
+	return (0);
 }

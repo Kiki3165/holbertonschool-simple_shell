@@ -9,6 +9,6 @@
 #include <sys/stat.h>
 
 char *get_location(char *command,char *file_path);
-void execmd(char **argv, char **envp);
+int execmd(char **argv, char **envp);
 
 #endif
