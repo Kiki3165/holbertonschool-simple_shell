@@ -50,7 +50,7 @@ int main(int ac, char **argv, char **envp)
             {
                 free(lineptr);
                 free(argv);
-                exit(2);
+                exit(0);
             }
             for (i = 0; token != NULL; i++)
             {
