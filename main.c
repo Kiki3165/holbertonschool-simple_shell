@@ -46,6 +46,12 @@ int main(int ac, char **argv, char **envp)
             /* Store each token in the argv array */
             token = strtok(lineptr, delim);
 
+            if (token == NULL)
+            {
+                free(lineptr);
+                free(argv);
+                exit(2);
+            }
             for (i = 0; token != NULL; i++)
             {
                 argv[i] = NULL;
