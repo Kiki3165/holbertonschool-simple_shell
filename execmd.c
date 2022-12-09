@@ -35,11 +35,9 @@ void execmd(char **argv, char **envp)
 		/* execute the command with execve */
 		execve(actual_command, argv, envp);
 		free(actual_command);
-        exit(2);
 	}
-    wait(&status);
-    if (status == 512)
+    else
     {
-        exit(2);
+        wait(&status);
     }
 }
