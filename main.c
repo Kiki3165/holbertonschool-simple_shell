@@ -33,6 +33,11 @@ int main(int ac, char **argv, char **envp)
             break;
         else if (strcmp("exit\n", lineptr) == 0)
             exit(1);
+        {
+            exit(2);
+            break;
+        }
+            exit(2);
         else if (strcmp("env\n", lineptr) == 0)
         {
             for (env = envp; *env != 0; env++)
