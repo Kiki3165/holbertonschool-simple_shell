@@ -12,13 +12,16 @@ void execmd(char **argv, char **envp)
 	char *file_path;
 	file_path = NULL;
 
-	child_pid = fork();
 
 	/* get the command */
 	command = argv[0];
 
 	/*generate the path to this command before passing it to execve*/
 	actual_command = get_location(command,file_path);
+
+
+	child_pid = fork();
+
 
 	if (!actual_command)
 		exit(1);
