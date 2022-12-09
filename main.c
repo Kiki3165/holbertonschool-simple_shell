@@ -12,7 +12,6 @@ int main(int ac, char **argv, char **envp)
     size_t n = 0;
     /*ssize_t nchars_read;*/
     const char *delim = "\n \t";
-    int num_tokens = 0;
     char *token;
     char **env;
     int i;
