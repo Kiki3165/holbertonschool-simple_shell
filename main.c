@@ -32,11 +32,15 @@ int main(int ac, char **argv, char **envp)
         if (feof(stdin))
             break;
         else if (strcmp("exit\n", lineptr) == 0)
+<<<<<<< HEAD
         {
             exit(2);
             break;
         }
             
+=======
+            exit(2);
+>>>>>>> 0cbbdce5c1adb7684093e4a2d32d6df2bde151b2
         else if (strcmp("env\n", lineptr) == 0)
         {
             for (env = envp; *env != 0; env++)
