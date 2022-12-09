@@ -28,7 +28,7 @@ void execmd(char **argv, char **envp)
 	if (child_pid == -1)
 	{
 		perror("Error:");
-		exit(1);;
+		exit(1);
 	}
 	if (child_pid == 0)
 	{
