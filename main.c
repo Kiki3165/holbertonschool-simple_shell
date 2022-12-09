@@ -8,7 +8,7 @@
 int main(int ac, char **argv, char **envp)
 {
 	char *prompt = "";
-	char *lineptr = NULL, *lineptr_copy = NULL;
+	char *lineptr = NULL;
 	size_t n = 0;
 	/*ssize_t nchars_read;*/
 	const char *delim = "\n ";
