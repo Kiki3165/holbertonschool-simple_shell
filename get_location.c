@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * get_location - get the path
+ * @command: the command to enter
+ * @file_path: the path of the file
+ * Return: NULL
+ */
+
 char *get_location(char *command,char *file_path)
 {
     char *path, *path_copy, *path_token;
