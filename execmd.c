@@ -1,8 +1,16 @@
-#include "main.h"
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+
+
+/**
+* execmd - Entry point
+* Description: 'execute the command'
+* Return: int
+* @argv: char envp
+* @envp: char envp
+*/
 
 int execmd(char **argv, char **envp)
 {
@@ -10,6 +18,7 @@ int execmd(char **argv, char **envp)
 	pid_t child_pid;
 	int status;
 	char *file_path;
+
 	file_path = NULL;
 
 
@@ -17,7 +26,7 @@ int execmd(char **argv, char **envp)
 	command = argv[0];
 
 	/*generate the path to this command before passing it to execve*/
-	actual_command = get_location(command,file_path);
+	actual_command = get_location(command, file_path);
 
 
 	child_pid = fork();
@@ -37,9 +46,10 @@ int execmd(char **argv, char **envp)
 		free(actual_command);
 	}
 	wait(&status);
-	if (status == 152){
+	if (status == 152)
+	{
 		free(actual_command);
-	return (-1);
+		return (-1);
 	}
 	return (0);
 }
